@@ -1,0 +1,10 @@
+{
+    "name": "insomnia-plugin-open-api-signature",
+    "version": "1.0.0",               
+    "main": "plugin.js",
+
+    "insomnia": {                    
+      "name": "open-api-signature", 
+      "description": "auto signature for open api"
+    }
+  }
