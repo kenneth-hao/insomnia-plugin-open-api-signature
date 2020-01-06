@@ -13,6 +13,8 @@ Insomnia Plugin 支持自动接口数字签名
 
 > Plugin 实现主要是通过拦截 `指定规则的路由`, 并读取 `Environment` 变量中的 `app_sign_key` 来自动计算 & 添加 `sign` 参数.
 
+> 注意：暂不支持表单为 `form-data` 的请求，因官方未支持在 Plugin 中获取参数
+
 举个栗子
 
 配置 `Sub Environments`， 选定 `Activate Environment`

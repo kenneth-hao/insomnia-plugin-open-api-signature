@@ -2,7 +2,7 @@
 
 var crypto = require('crypto');
 
-const regexUri = /.*?\/open\/i\/.*?/;
+const regexUri = /^(https?:\/\/)[^\s]+?\/(open\/i|japi\/platform)/;
 
 function sign(req, apiSecret) {
   // Get all parameters from the request and generate a query string
@@ -38,6 +38,7 @@ module.exports.requestHooks = [
       console.log('Invalid context');
       return;
     }
+
     // Validate request
     if (
       !context.hasOwnProperty('request') ||
@@ -57,6 +58,12 @@ module.exports.requestHooks = [
       !regexUri.test(req.getUrl())
     ) {
       console.log('Not a OpenApi API URL');
+      return ;
+    }
+
+    // !!! note
+    if (req.getMethod() == 'POST') {
+      console.log('Insomnia Plugin not support get form-data');
       return ;
     }
 
